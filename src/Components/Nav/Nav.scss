@@ -1,0 +1,35 @@
+
+@font-face {
+    font-family: 'italiana';
+    src: url(../../Fonts/Italiana-Regular.ttf);
+}
+*{
+    margin: 0rem;
+}
+.nav{
+    &__container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__subcontainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__header{
+        font-family: 'italiana';
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    &__subheader{
+        font-weight: bold;
+        font-size: 1rem;
+        &--padding{
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+    }
+
+}
