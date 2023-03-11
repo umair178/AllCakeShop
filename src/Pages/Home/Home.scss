@@ -1,0 +1,14 @@
+*{
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+}
+.home{
+    &__container{
+        height: 60rem;
+        background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+};
