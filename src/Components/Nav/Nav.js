@@ -12,7 +12,7 @@ function Nav(){
         .then((res)=>{
             setIsLoggedIn(true)
             setProfileData(res.data)
-            console.log(res)
+            console.log('profile data is :', res)
         })
         .catch((err)=>{
             if(err.response.status===401){
@@ -22,16 +22,16 @@ function Nav(){
                 
             }
         })
-    });
+    },[]);
     return(
         <div>
             <div className='nav__container'>
                 <p className='nav__header'>All Cake Shop</p>
                 <div className='nav__subcontainer'>
                     <Link to='/' className='nav__subheader'>Home</Link>
-                    <Link to='/' className='nav__subheader nav__subheader--padding'>Shop</Link>
+                    <Link to='/cart' className='nav__subheader nav__subheader--padding'>Cart</Link>
                     <Link to='/' className='nav__subheader'>About Us</Link>
-                    {isLoggedIn? (<p>Welcome</p>):(<a href='http://localhost:8080/auth/github'>Log In</a>)}
+                    {isLoggedIn? (<p>Welcome {profileData.username}</p>):(<a href='http://localhost:8080/auth/github'>Log In</a>)}
                 </div>
 
             </div>

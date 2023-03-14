@@ -1,8 +1,67 @@
 
+@font-face {
+    font-family: 'italiana';
+    src: url(../../Fonts/Italiana-Regular.ttf);
+}
+*{
+    margin: 0rem;
+}
 .main{
     &__header{
         font-family: 'italiana';
         font-size: 3.5rem;
         font-weight: bold;
+        padding: 10rem 0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    &__container{
+        // height: 60rem;
+        background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
+        background-color: rgba($color: #EFE3CA, $alpha: 0.7);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    &__cakes{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        border: 0.5rem solid black;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    &__subcontainer1{
+        
+        background-color: rgba($color: #EFE3CA, $alpha: 0.5);
+        
+    }
+    &__subcontainer2{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+        flex-wrap: wrap;
+        padding-top: 2rem;
+    }
+    &__subheader{
+        font-size: 3rem;
+        font-family: italiana;
+        font-weight: 700;
+        padding-top: 3rem;
+    }
+    &__images{
+        border-radius: 2rem;
+        height: 25rem;
+        width: 30rem;
+        padding-bottom: 1rem;
+        cursor: pointer;
+    }
+    &__price{
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: italiana;
     }
 }

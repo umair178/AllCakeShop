@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'italiana';
+    src: url(../../Fonts/Italiana-Regular.ttf);
+}
+*{
+    margin: 0rem;
+}
+.cart{
+    &__title{
+        font-size: 2rem;
+        font-family: italiana;
+        font-weight: bold;
+
+    }
+    &__container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
