@@ -1,26 +1,29 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import './Main.scss';
 
 function Main(props){
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    const navigate = useNavigate();
+    const {cakeId} = useParams();
     const handleClick = (cake)=>{
-        console.log(cake);
-        axios
-        .get(`${SERVER_URL}/auth/profile`, {withCredentials: true})
-        .then(response=>{
-            console.log(response.data)
-            const user_id = response.data.user_id;
-            const cake_id = cake.cake_id;
-            const cart_object = {
-                user_id,
-                cake_id
-            }
-            console.log(cart_object)
-            axios.post(`${SERVER_URL}/cart`, cart_object).then((response)=>{
+        const cakeId = cake.cake_id;
+        navigate (`/cakes/${cakeId}`)
+        // axios
+        // .get(`${SERVER_URL}/auth/profile`, {withCredentials: true})
+        // .then(response=>{
+        //     console.log(response.data)
+        //     const user_id = response.data.user_id;
+        //     const cake_id = cake.cake_id;
+        //     const cart_object = {
+        //         user_id,
+        //         cake_id
+        //     }
+        //     console.log(cart_object)
+        //     axios.post(`${SERVER_URL}/cart`, cart_object).then((response)=>{
                 
-            })
-        })
+        //     })
+        // })
         
     }
     return (

@@ -4,16 +4,16 @@ import axios from 'axios';
 function Cart(){
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const formRef = useRef();
-    const [cakes, setCakes] = useState([])
+    const [cakeInCart, setCakeInCart] = useState([])
     useEffect(()=>{
         axios
         .get(`${SERVER_URL}/cartdetails`)
         .then(response=>{
-            setCakes(response.data)
-            console.log(response.data)
+            setCakeInCart(response.data)
+            console.log('cart array is:', response.data)
+
         })
     }, []);
-    console.log('cakes array is:', cakes)
 
     const addOrder = (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ function Cart(){
         <div>
             <h2 className="cart__title">Your Cart</h2>
             {
-                cakes.map((cake) => {
+                cakeInCart.map((cake) => {
                     return (
                         <div className='cart__container'>
                             <div>

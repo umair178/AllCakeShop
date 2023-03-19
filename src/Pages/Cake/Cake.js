@@ -15,8 +15,8 @@ function Cake(){
         axios
         .get(`${SERVER_URL}/${cakeId}`)
         .then(res=>{
-            setCake(res.data);
-            console.log(res.data)
+            setCake(res.data[0]);
+            console.log('cake data is :', res.data[0])
         })
     },[])
 
@@ -28,16 +28,15 @@ function Cake(){
         .then(response=>{
             console.log(response.data)
             const user_id = response.data.user_id;
-            const [cake_obj] = cake
-            const cake_id = cake_obj.cake_id;
+            const cake_id = cake.cake_id;
             const cart_object = {
                 user_id,
                 cake_id
             }
             console.log(cart_object)
-            // axios.post(`${SERVER_URL}/cart`, cart_object).then((response)=>{
+            axios.post(`${SERVER_URL}/cart`, cart_object).then((response)=>{
                 
-            // })
+            })
         })
         
     };
@@ -67,7 +66,7 @@ function Cake(){
                         </div>
                     </div>
                     <div className='cake__image1'>
-                        <img src='http://localhost:8080/IMG_6497 1.svg' className='cake__image'></img>
+                        <img src={cake.image_url} className='cake__image'></img>
                     </div>
                 </div>
             </div>
