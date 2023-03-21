@@ -7,14 +7,57 @@
 }
 .cart{
     &__title{
-        font-size: 2rem;
+        font-size: 3rem;
         font-family: italiana;
         font-weight: bold;
+        display: flex;
+        justify-content: center;
+        border-bottom: 3px solid gray;
 
     }
     &__container{
+        margin: 0rem 20rem;
+    }
+    &__subcontainer1{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        padding: 1rem 0rem;
+    }
+    &__subcontainer2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__specs{
+        font-family: italiana;
+        font-size: 2.5rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
+    }
+    &__specscontent{
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding-bottom: 2rem;
+    }
+    &__image{
+        width: 25rem;
+        height: 25rem;
+        border-radius: 2.5rem;
+    }
+    &__button-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+    &__button{
+        width: 25rem;
+        height: 5rem;
+        background-color: black;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
     }
 }
