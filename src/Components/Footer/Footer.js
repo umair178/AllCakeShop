@@ -45,7 +45,7 @@ function Footer(){
                         <a href="">
                             <img className="footer__icons footer__icons--margin" src={twittericon} alt="" ></img>
                         </a>
-                        <a href="">
+                        <a href="https://www.instagram.com/allcakeshop/">
                             <img className="footer__icons footer__icons--margin" src={instagramicon} alt=""></img>
                         </a>
                     </div>

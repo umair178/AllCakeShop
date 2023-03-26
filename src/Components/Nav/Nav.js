@@ -32,7 +32,7 @@ function Nav(){
                             <div className="nav__dropdown">
                                 <button className="nav__dropbtn">Welcome {profileData.username}</button>
                                 <div className="nav__dropdown-content">
-                                    <Link to="#" className='nav__dropdown-list'>View Orders</Link>
+                                    {/* <Link to="#" className='nav__dropdown-list'>View Orders</Link> */}
                                     <Link to={`${process.env.REACT_APP_SERVER_URL}/auth/logout`} className='nav__dropdown-list'>Logout</Link>
                                     
                                 </div>

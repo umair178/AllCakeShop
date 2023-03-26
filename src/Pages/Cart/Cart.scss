@@ -21,7 +21,6 @@
         display: flex;
         justify-content: center;
         border-bottom: 3px solid gray;
-
     }
     &__container{
         margin: 0rem 0rem;
@@ -30,7 +29,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 1rem 30rem;
+        padding: 1rem 20rem;
         align-items: center;
         border-bottom: 3px solid grey;
     }
@@ -79,6 +78,8 @@
         flex-direction: row;
         justify-content: center;
         padding-bottom: 2rem;
+        padding-top: 2rem;
+
     }
     &__button{
         width: 25rem;

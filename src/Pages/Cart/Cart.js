@@ -9,9 +9,8 @@ function Cart() {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const [cakeInCart, setCakeInCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
-    const [itemQuantity, setItemQuantity] = useState(1);
+    const [quantity, setQuantity] = useState({quantity: 1});
 
-    const formRef = useRef();
     useEffect(() => {
         axios
             .get(`${SERVER_URL}/auth/profile`, { withCredentials: true })
@@ -20,13 +19,20 @@ function Cart() {
                     axios
                         .get(`${SERVER_URL}/cart`)
                         .then(response => {
-                            setCakeInCart(response.data)
-                            let price = 0
                             for (let i = 0; i < response.data.length; i++) {
-                                price += response.data[i].price
+                                response.data[i] = { ...response.data[i], ...quantity }
                             }
-                            setTotalPrice(price);
+                            setCakeInCart(response.data)
+                                
+                            .then(res => {
+                                let price = 0
+                                for (let i = 0; i < res.data.length; i++) {
+                                    price += res.data[i].price * res.data[i].quantity
+                                }
+                                setTotalPrice(price);
+                            })
                         })
+                        
                         .catch(error => {
                             console.log('error fetching the cart is:', error)
                         });
@@ -46,7 +52,7 @@ function Cart() {
             //     ]
             // }
             const items = {
-                items: cakeInCart.map((cake) => ({ id: cake.cake_id, quantity: itemQuantity})),
+                items: cakeInCart.map((cake) => ({ id: cake.cake_id, quantity: cake.quantity})),
             };
             console.log(items)
             axios.post(`${SERVER_URL}/create-checkout-session`, items)
@@ -60,16 +66,16 @@ function Cart() {
     };
 
     const updateQuantity = (e, cake) => {
-        console.log(cake)
-        console.log(e.target.value)
+        const index = cakeInCart.findIndex(item=>
+            item.cake_id === cake.cake_id
+        )
+        cakeInCart[index].quantity = parseInt(e.target.value)
     };  
     const deletecart = (e, cake) => {
         e.preventDefault();
-        console.log(cake)
         axios
             .delete(`${SERVER_URL}/cart`, { data: { cake: cake } })
             .then((response) => {
-                console.log(response)
                 axios.get(`${SERVER_URL}/cart`)
                     .then(response => {
                         setCakeInCart(response.data)
@@ -99,6 +105,7 @@ function Cart() {
                         {
                             cakeInCart.length ? (
                                 cakeInCart.map((cake) => {
+                                
                                     return (
                                         <div className='cart__subcontainer1'>
                                             <div>
@@ -107,14 +114,10 @@ function Cart() {
                                             <div className='cart__subcontainer2'>
                                                 <p className='cart__specs'>{cake.occasion} Cake</p>
                                                 <p className='cart__specs'>{cake.size} Size</p>
-                                                <p className='cart__specs'>{`$${cake.price}`}</p>
+                                                <p className='cart__specs'>{`$${cake.price/100}`}</p>
                                             </div>
                                             <div className='cart__subcontainer3'>
                                                 <input type='number' min='1' name={`${cake.occasion}`} onChange={(e)=>updateQuantity(e,cake)} placeholder='1' className='cart__input'></input>
-
-                                                {/* <form ref={formRef} id='form' onInput={() => updateQuantity(cake)}>
-                                                    <input type='number' min='1' name={`${cake.occasion}`} placeholder='1' className='cart__input'></input>
-                                                </form> */}
                                             </div>
                                             <form onClick={(e)=>deletecart(e, cake)}>
                                                 <button className='cart__delete'>Delete</button>
@@ -129,7 +132,7 @@ function Cart() {
                             )
                             
                         }
-                        <p className='cart__empty'>Your total is ${totalPrice}</p>
+                        {/* <p className='cart__empty'>Your total is ${totalPrice}</p> */}
 
                     </div>
                     <div className='cart__button-container' onClick={handleclick}>
