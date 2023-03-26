@@ -10,13 +10,13 @@ function Footer(){
             <div className="footer__subcontainer3">
                 <div className="footer__subcontainer4">
                     <div className="footer__content">
-                        <p className="footer__headers">Get in Touch</p>
+                        <p className="footer__headers">Pickup Location</p>
                     </div>
                     <div className="footer__content">
-                        <p className="">503 Broadway Penthouse,</p>
-                        <p className="footer__content--text">New York, NY 10012, USA</p>
+                        <p className="">Pre-Order only</p>
+                        <p className="footer__content--text">6358 167B Street, Surrey, BC</p>
                     </div>
-                    <p className="footer__text footer__content2">info@thebeesknees.com</p>
+                    <p className="footer__text footer__content2">allcakshopp@gmail.com</p>
                 </div>
                 <div className="footer__subcontainer4">
                     <div className="footer__content">

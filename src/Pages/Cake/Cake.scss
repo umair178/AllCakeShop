@@ -8,14 +8,26 @@
 }
 
 .cake{
+    background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &__container1{
+        background-color: rgba($color: grey, $alpha: 0.6);
+    }
     &__container{
-        padding: 0rem 15rem;
-        background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
-        // background-color: rgba($color: #EFE3CA, $alpha: 0.4);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        backdrop-filter: blur(35px);
+        padding: 5rem 15rem;
+        
+    }
+    &__title{
+        font-family: italiana;
+        font-size: 3.5rem;
+        font-weight: 600;
+        border-bottom: 3px solid black;
+        margin: 0rem 15rem;
+        display: flex;
+        justify-content: center;
+        
     }
     &__description{
         padding: 4rem 15rem;
@@ -41,22 +53,17 @@
         padding-bottom: 1rem;
     }
     &__specscontent{
-        padding-left: 1rem;
-        font-size: 1.5rem;
+        padding-left: 2rem;
+        font-size: 2rem;
         font-weight: 500;
         padding-bottom: 2rem;
     }
     &__image{
         width: 30rem;
-        // height: 35rem;
         border-radius: 15px;
         border: 3px solid gray;
-        // box-shadow: 25px black;
     }
-    &__image1{
-        // width: 35rem;
-        // height: 15rem;
-    }
+    
     &__button{
         width: 15rem;
         height: 5rem;

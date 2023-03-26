@@ -6,6 +6,14 @@
     margin: 0rem;
 }
 .cart{
+    background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &__background-color{
+        background-color: rgba($color: grey, $alpha: 0.6);
+
+    }
     &__title{
         font-size: 3rem;
         font-family: italiana;
@@ -16,22 +24,34 @@
 
     }
     &__container{
-        margin: 0rem 20rem;
+        margin: 0rem 0rem;
     }
     &__subcontainer1{
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        padding: 1rem 0rem;
+        justify-content: space-between;
+        padding: 1rem 30rem;
+        align-items: center;
+        border-bottom: 3px solid grey;
     }
     &__subcontainer2{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 0rem 0rem;
+        width: 20rem;
+    }
+    &__subcontainer3{
+        display: flex;
+    }
+    &__input{
+        height: 2rem;
+        width: 10rem;
+        font-size: 1.5rem;
     }
     &__specs{
         font-family: italiana;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 600;
         padding-bottom: 1rem;
     }
@@ -41,10 +61,18 @@
         font-weight: 500;
         padding-bottom: 2rem;
     }
+    &__empty{
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        padding: 5rem 0rem;
+    }
     &__image{
-        width: 25rem;
-        height: 25rem;
-        border-radius: 2.5rem;
+        width: 15rem;
+        height: 15rem;
+        border: 3px solid black;
+
     }
     &__button-container{
         display: flex;
@@ -60,4 +88,17 @@
         font-size: 1.5rem;
         cursor: pointer;
     }
+    &__delete{
+        height: 2rem;
+        width: 8rem;
+        font-size: 1.2rem;
+        background-color: black;
+        color: white;
+        cursor:pointer;
+
+    }
+};
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    height: 2rem;
+    width: 2rem;
 }

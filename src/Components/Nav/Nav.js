@@ -8,7 +8,7 @@ function Nav(){
     const [profileData, setProfileData] = useState(null);
     useEffect(()=>{
         axios
-        .get('http://localhost:8080/auth/profile', {withCredentials: true})
+        .get(`${process.env.REACT_APP_SERVER_URL}/auth/profile`, {withCredentials: true})
         .then((res)=>{
             setIsLoggedIn(true)
             setProfileData(res.data)
@@ -26,14 +26,27 @@ function Nav(){
     return(
         <div>
             <div className='nav__container'>
+                <div className='nav__login'>
+                    {isLoggedIn ?
+                        (
+                            <div className="nav__dropdown">
+                                <button className="nav__dropbtn">Welcome {profileData.username}</button>
+                                <div className="nav__dropdown-content">
+                                    <Link to="#" className='nav__dropdown-list'>View Orders</Link>
+                                    <Link to={`${process.env.REACT_APP_SERVER_URL}/auth/logout`} className='nav__dropdown-list'>Logout</Link>
+                                    
+                                </div>
+                            </div>
+                        ) : (
+                            <Link className='nav__login-button' to={`${process.env.REACT_APP_SERVER_URL}/auth/google`}>Login</Link>
+                        )}
+                </div>
                 <p className='nav__header'>All Cake Shop</p>
                 <div className='nav__subcontainer'>
                     <Link to='/' className='nav__subheader'>Home</Link>
                     <Link to='/cart' className='nav__subheader nav__subheader--padding'>Cart</Link>
                     <Link to='/' className='nav__subheader'>About Us</Link>
-                    {isLoggedIn? (<p>Welcome {profileData.username}</p>):(<a href='http://localhost:8080/auth/github'>Log In</a>)}
                 </div>
-
             </div>
         </div>
     )

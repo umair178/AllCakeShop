@@ -41,7 +41,8 @@ function Main(props){
                                         <img src={cake.image_url} className='main__images' ></img>
                                     </div>
                                     <div>
-                                        <p className='main__price'>From $80 // Floral</p>
+                                        <p className='main__price'>{`From $${cake.price} // ${cake.style} Style`}</p>
+                                        <p className='main__occasion'>{`${cake.occasion}`}</p>
                                     </div>
                                 </div>
                             )

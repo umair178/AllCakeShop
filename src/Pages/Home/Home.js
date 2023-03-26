@@ -10,7 +10,6 @@ function Home() {
     useEffect(()=>{
         axios.get(`${SERVER_URL}/cakes`)
         .then(response=>{
-            console.log(response.data)
             setCakesCollection(response.data)
         })
         .catch(e=>{
@@ -20,9 +19,11 @@ function Home() {
 
     return (
         <div className='home__container'>
-            <Nav></Nav>
-            <Main cakescollection={cakesCollection}></Main>
-            <Footer></Footer>
+            <div className='home__subcontainer'>
+                <Nav></Nav>
+                <Main cakescollection={cakesCollection}></Main>
+                <Footer></Footer>
+            </div>
         </div>
     )
 };
