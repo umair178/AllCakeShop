@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'italiana';
+    src: url(../../Fonts/Italiana-Regular.ttf);
+}
+*{
+    margin: 0rem;
+}
+.about{
+    background-image: url('../../../Assests/Cakes/IMG_6506\ 2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &__title{
+        font-family: italiana;
+        font-size: 3.5rem;
+        font-weight: 600;
+        border-bottom: 3px solid black;
+        margin: 0rem 15rem;
+        display: flex;
+        justify-content: center;
+    }
+    &__subcontainer{
+        background-color: rgba($color: grey, $alpha: 0.6);
+    }
+    &__subcontainer2{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem 10rem;
+    }
+    &__content{
+        font-size: 1.5rem;
+        
+    }
+}

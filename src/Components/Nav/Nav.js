@@ -45,7 +45,7 @@ function Nav(){
                 <div className='nav__subcontainer'>
                     <Link to='/' className='nav__subheader'>Home</Link>
                     <Link to='/cart' className='nav__subheader nav__subheader--padding'>Cart</Link>
-                    <Link to='/' className='nav__subheader'>About Us</Link>
+                    <Link to='/aboutus' className='nav__subheader'>About Us</Link>
                 </div>
             </div>
         </div>
