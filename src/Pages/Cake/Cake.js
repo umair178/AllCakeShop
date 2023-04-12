@@ -28,7 +28,8 @@ function Cake(){
                     axios
                         .get(`${SERVER_URL}/auth/profile`, { withCredentials: true })
                         .then(response => {
-                            const user_id = response.data.user_id;
+                            console.log(response)
+                            const user_id = response.data.id;
                             const cake_id = cake.cake_id;
                             const cart_object = {
                                 user_id,
@@ -64,7 +65,7 @@ function Cake(){
                         axios
                             .get(`${SERVER_URL}/auth/profile`, { withCredentials: true })
                             .then(response => {
-                                const user_id = response.data.user_id;
+                                const user_id = response.data.id;
                                 const cake_id = cake.cake_id;
                                 const cart_object = {
                                     user_id,
@@ -114,7 +115,7 @@ function Cake(){
                             </div>
                             <div>
                                 <p className='cake__specs'>Price</p>
-                                <p className='cake__specscontent'>{`$${cake.price}`}</p>
+                                <p className='cake__specscontent'>{`$${cake.price/100}`}</p>
                             </div>
                             <div>
                                 <p className='cake__specs'>Order before</p>

@@ -16,7 +16,13 @@ function Cart() {
             .get(`${SERVER_URL}/auth/profile`, { withCredentials: true })
             .then(response => {
                 if (response.status===200) {
+                    const user_id = response.data.id
+                    const user_obj={user_id}
                     axios
+                        // .post(`${SERVER_URL}/getuserid`,user_obj)
+                        // .then(res=>{
+                            
+                        // })
                         .get(`${SERVER_URL}/cart`)
                         .then(response => {
                             for (let i = 0; i < response.data.length; i++) {
